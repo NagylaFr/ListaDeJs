@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula de Bhakara</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #a04556;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #a04556;
+        }
+
+        #frase {
+            margin-top: 10px;
+        }
+
+        #equacao {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        #resultados {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Resolvendo Bhakara </h1>
+
+    <button onclick="calcularDelta()">Calcular</button>
+
+    <div id="frase">Considerando uma equação no formato ax² + bx + c = 0, aperte o botão acima para o valor de Δ</div>
+
+    <!-- Equação e Resultados -->
+    <div id="equacao"></div>
+    <p id="resultados"></p>
+
+    <script>
+        function calcularDelta() {
+            var a = parseFloat(prompt("Qual o valor de a?"));
+            var b = parseFloat(prompt("Qual o valor de b?"));
+            var c = parseFloat(prompt("Qual o valor de c?"));
+
+            // Verificar se os coeficientes são válidos
+            if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
+                // Ocultar a frase explicativa
+                document.getElementById('frase').style.display = 'none';
+
+                // Montar a equação
+                var equacao = `A equação atual é ${a}x² + ${b}x + ${c} = 0`;
+
+                // Calcular o discriminante
+                var delta = b * b - 4 * a * c;
+
+                // Exibir a equação e o valor de delta na página
+                document.getElementById('equacao').textContent = equacao;
+
+                // evitando zeros extras
+                var deltaFormatado = Number.isInteger(delta) ? delta.toString() : delta.toFixed(2);
+
+                document.getElementById('resultados').textContent = `O valor calculado foi Δ = ${deltaFormatado}`;
+            } else {
+                // Exibir mensagem se os coeficientes não forem válidos
+                alert("Por favor, insira coeficientes válidos (números).");
+            }
+        }
+    </script>
+
+</body>
+</html>
