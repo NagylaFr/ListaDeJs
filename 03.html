@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antecessor e Sucessor</title>
+</head>
+<body>
+
+    <h1>Antes e depois</h1>
+
+    <button onclick="exibirAntecessorSucessor()">Antecessor e Sucessor</button>
+       
+    <script>
+        function exibirAntecessorSucessor() {
+            // Solicitar ao usuário que insira um número
+            var numeroEscolhido = prompt("Digite um número inteiro qualquer:");
+
+            // Verificar se o usuário clicou em "Cancelar" ou deixou o campo em branco
+            if (numeroEscolhido === null || numeroEscolhido === "") {
+                alert("Operação cancelada ou nenhum número fornecido.");
+            } else {
+                
+                var numero = parseFloat(numeroEscolhido);
+
+                // Verificar se a conversão foi bem-sucedida
+                if (!isNaN(numero)) {
+                    // Calcular o antecessor e o sucessor
+                    var antecessor = numero - 1;
+                    var sucessor = numero + 1;
+
+                   
+                    alert("Número escolhido: " + numero + "\nAntecessor: " + antecessor + "\nSucessor: " + sucessor);
+                } else {
+                    alert("Por favor, insira um número válido.");
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
