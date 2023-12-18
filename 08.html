@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de Desconto</title>
+    
+</head>
+<body>
+
+    <h1>Calcular Desconto</h1>
+
+    <button onclick="solicitarValor()"> Desconto de 10% </button>
+
+    <!-- Div - frase inicial -->
+    <div id="iniciar">Clique no botão acima para iniciar</div>
+
+    <!-- Resultados -->
+    <div id="resultados"></div>
+
+    <script>
+        function solicitarValor() {
+             // Ocultar a frase inicial
+             document.getElementById('iniciar').style.display = 'none';
+            // Solicitar ao usuário que insira o valor do produto
+            var valorProduto = parseFloat(prompt("Digite o valor do produto em reais:"));
+
+            // Verificar se o valor do produto é um número válido
+            if (!isNaN(valorProduto)) {
+                // Calcular o desconto de 10%
+                var desconto = valorProduto * 0.10;
+
+                // Exibir os resultados
+                document.getElementById('resultados').innerHTML = `
+                    <p>Valor do Produto: R$ ${valorProduto.toFixed(2)}</p>
+                    <p>Desconto de 10%: R$ ${desconto.toFixed(2)}</p>
+                    <p>Valor com Desconto: R$ ${(valorProduto - desconto).toFixed(2)}</p>
+                `;
+            } else {
+                // Exibir mensagem se o valor do produto não for um número válido
+                alert("Por favor, insira um valor de produto válido.");
+            }
+        }
+    </script>
+
+</body>
+</html>
