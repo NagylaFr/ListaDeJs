@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de medidas</title>
+    
+</head>
+<body>
+
+    <h1>Conversor de medidas</h1>
+
+    <button onclick="converterDistancia()">Converter</button>
+
+    <!-- Div para a frase inicial -->
+    <div id="iniciar">Clique no botão acima para iniciar</div>
+
+    <!-- Resultados -->
+    <div id="resultados"></div>
+
+    <script>
+        function converterDistancia() {
+            // Ocultar a frase inicial
+            document.getElementById('iniciar').style.display = 'none';
+
+            var distanciaMetros = parseFloat(prompt("Digite a distância em metros:"));
+
+            // Verificar se a distância é um número válido
+            if (!isNaN(distanciaMetros)) {
+                // conversões
+                var distanciaKm = distanciaMetros / 1000;
+                var distanciaHm = distanciaMetros / 100;
+                var distanciaDam = distanciaMetros / 10;
+                var distanciaDm = distanciaMetros * 10;
+                var distanciaCm = distanciaMetros * 100;
+                var distanciaMm = distanciaMetros * 1000;
+
+                //  o resultado
+                var resultado = `
+                    <p>Distância em quilômetros: ${distanciaKm.toFixed(6)} km</p>
+                    <p>Distância em hectômetros: ${distanciaHm.toFixed(5)} hm</p>
+                    <p>Distância em decâmetros: ${distanciaDam.toFixed(4)} dam</p>
+                    <p>Distância em decímetros: ${distanciaDm.toFixed(3)} dm</p>
+                    <p>Distância em centímetros: ${distanciaCm.toFixed(2)} cm</p>
+                    <p>Distância em milímetros: ${distanciaMm.toFixed(1)} mm</p>
+                `;
+
+                // resultados na página
+                document.getElementById('resultados').innerHTML = resultado;
+            } else {
+                // Exibir mensagem se a distância não for um número válido
+                alert("Por favor, insira uma distância válida.");
+            }
+        }
+    </script>
+
+</body>
+</html>
